@@ -1,9 +1,8 @@
 # atwrk-LKemployer
 
-активные вкладки:
+готовые вкладки:
 1. все отклики
-2. рядом
-3. статистика
+2. статистика
 
 
 https://flw7.github.io/atwrk-LKemployer/
