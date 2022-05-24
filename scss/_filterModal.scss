@@ -1,0 +1,479 @@
+.filter-block {
+  position: relative;
+  width: 100%;
+  max-height: 0;
+  margin-top: 20px;
+  // transition: max-height 1s, overflow 1s;
+  transition-property: max-height, overflow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  background: white;
+  overflow: hidden;
+
+  &.active {
+    max-height: 100%;
+    overflow: visible;
+    // transition: max-height 4s, overflow 4s;
+    transition-property: max-height, overflow;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    .filters__col {
+      margin-right: 20px;
+      width: 100%;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .filters__item {
+      margin-bottom: 12px;
+
+      .item {
+        margin-bottom: 10px;
+        font-weight: 400;
+        height: auto;
+
+        label {
+          display: flex;
+          align-items: center;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--gray-900);
+  }
+
+  .mainFilter-clear-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+    .mainFilter-clear {
+      color: var(--gray-850);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.filters__age {
+  display: flex;
+
+  .filters__age_input {
+    width: 100%;
+  }
+}
+
+.region-filter {
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  h2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .region__dropdown_btn {
+    margin-top: 10px;
+  }
+
+  .item {
+    span {
+      max-height: 16px;
+    }
+  }
+
+  .region__dropdown_btn {
+    margin-bottom: 10px;
+  }
+
+  .region__dropdown-list {
+    .item {
+      margin-bottom: 16px !important;
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+
+    }
+
+  }
+
+  .region__dropdown-modal_wrapper {
+    position: relative;
+    margin-top: 15px;
+
+    // тругугольник
+    &::before {
+      content: "";
+      position: absolute;
+      display: flex;
+      left: 50%;
+      top: -20px;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      border: 10px solid transparent;
+      border-bottom: 10px solid var(--white);
+      z-index: 200;
+    }
+  }
+}
+
+.citizenship-filter {
+  margin-top: 66px;
+
+  .citizenship__dropdown_btn {
+    margin-bottom: 10px;
+  }
+}
+
+.citizenship__filter-list_wrapper {
+  position: relative;
+  margin-top: 15px;
+
+  // тругугольник
+  &::before {
+    content: "";
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-bottom: 10px solid var(--white);
+    z-index: 200;
+  }
+}
+
+.citizenship__filter-list {
+
+  .item {
+    padding: 6px 0;
+
+    label {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    span {
+      display: none !important;
+    }
+  }
+
+  .item.active {
+    display: flex;
+    // display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+
+    &::after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      background-image: url(../img/Check-active.svg);
+    }
+  }
+
+  p {
+    margin-top: 2px;
+  }
+}
+
+.languages__list2 {
+  margin-top: 41px;
+}
+
+.driver-license-filter {
+  margin-top: 56px;
+}
+
+.fourth-col {
+  min-width: 150px;
+}
+
+.filters_input {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border-radius: 6px;
+  padding: 10px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-400);
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--gray-850);
+}
+
+.filters_input-modal {
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    right: 10px;
+    top: 8px;
+    background-image: url(../img/show-modal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.filters__dropdown {
+  position: relative;
+}
+
+.filters_input-dropdown {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    right: 10px;
+    background-image: url(../img/small-arrow-down.svg);
+    background-position: center;
+  }
+}
+
+.filters__dropdown-list {
+  background: white;
+  position: absolute;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 10px 10px 50px rgba(109, 133, 152, 0.2);
+  max-height: 140px;
+  overflow: auto;
+  z-index: 3;
+  padding: 12px 16px;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    z-index: 3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    background: var(--gray-300);
+    border-radius: 4px;
+    z-index: 3;
+  }
+}
+
+.filter-input-wrap-age,
+.filter-input-wage-wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  p {
+    position: absolute;
+    z-index: 1;
+    color: var(--gray-850);
+    left: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  input {
+    padding-left: 30px;
+    width: 100%;
+    // min-width: 100px;
+  }
+}
+
+.filter-input-wrap-age {
+  &:first-child {
+    margin-right: 8px;
+  }
+}
+
+.filter-input-wage-wrap {
+  &:first-child {
+    margin-bottom: 8px;
+  }
+}
+
+.filters__age_input::-webkit-outer-spin-button,
+.filters__wage_input::-webkit-outer-spin-button,
+.filters__age_input::-webkit-inner-spin-button,
+.filters__wage_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.driver-show-more {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  color: var(--orange-600);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.choosen-filters,
+.popup__region-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 20px;
+
+  .choosen-filters__filter-items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .filter-items__item,
+  .filter-items__age,
+  .filter-items__wage,
+  .sex-item {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    margin-right: 8px;
+    padding: 8px;
+    border: 1px solid var(--gray-400);
+    border-radius: 27px;
+    cursor: default;
+    margin-top: 8px;
+
+    img {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .filter-item-text {
+    display: flex;
+
+    p {
+      margin-left: 4px;
+    }
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .filters {
+    .item {
+      white-space: nowrap;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .filters {
+    .item {
+      white-space: nowrap;
+      font-size: 13px;
+    }
+  }
+
+  .filters__category_input {
+    p {
+      white-space: nowrap;
+      max-width: 85%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .region__filter-top {
+    p {
+      white-space: nowrap;
+      max-width: 85%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .filters__category_input {
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .region__filter-top,
+  .region__dropdown_btn,
+  .citizenship__dropdown_btn {
+    white-space: nowrap;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+
+  .filters__category_input {
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .region__filter-top,
+  .region__dropdown_btn,
+  .citizenship__dropdown_btn {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .driver-license__filter,
+  .experience-filter,
+  .sex-filter {
+    .item {
+      font-size: 12px;
+    }
+  }
+}

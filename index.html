@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../../common/components.css">
+  <link rel="stylesheet" href="../../common/variables.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <title>responses</title>
+</head>
+
+<body>
+  <div class="responses-wrapper">
+    <div class="response-block">
+      <div class="content-block">
+        <div class="responses">
+          <div class="responses__header">
+            <div class="responses__header_left">
+              <a href="#" onclick="history.back();">
+                <div class="arrow-img">
+                  <img src="./img/arrow-left.svg" alt="">
+                </div>
+              </a>
+              <div class="vacancy-img">
+                <img src="./img/vac-img.svg" alt="">
+              </div>
+              <div class="vacancy-info">
+                <span class="text-s12-h14-w400">Вакансия</span>
+                <h1 class="text-s16-h22-w600">Художник</h1>
+                <div class="loc-price text-s14-h20-w400">
+                  <p>Москва</p>
+                  <span class="dot"></span>
+                  <p>50 900 ₽</p>
+                </div>
+              </div>
+            </div>
+            <div class="responses__header_right">
+              <button class="auto-sort-btn">Включить автосортировку</button>
+            </div>
+          </div>
+          <!-- вкладки -->
+          <div class="menu-wrapper">
+            <div class="menu-box">
+              <ul class="menu">
+                <li class="menu__item">
+                  <a class="menu__item-link menu__item-link--active text-s14-h20-w400" id="all-responses">Все
+                    отклики<span class="card-count">0</span></a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__item-link text-s14-h20-w400 " id="invites">Приглашены<span
+                      class="card-count">0</span></a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__item-link text-s14-h20-w400 " id="think">Подумать<span class="card-count">0</span></a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__item-link text-s14-h20-w400 " id="statistics">Статистика<span
+                      class="card-count">0</span></a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__item-link text-s14-h20-w400 " id="nearby">Рядом<span class="card-count">0</span></a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__item-link text-s14-h20-w400 " id="black-list">Чёрный список<span
+                      class="card-count">0</span></a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__item-link text-s14-h20-w400 " id="reject">Отказ<span class="card-count">0</span></a>
+                </li>
+              </ul>
+              <hr class="menu-slider">
+              </hr>
+            </div>
+          </div>
+          <!-- кнопки под вкладками -->
+          <div class="controls">
+            <div class="controls-left">
+              <!-- чекбокс "выбрать все" -->
+              <div class="item item-check-all">
+                <label data-value="1">
+                  <input type="checkbox" class="all-checkboxes">
+                  <span></span>
+                </label>
+              </div>
+
+              <button class="control-btn invite-btn" disabled>Пригласить</button>
+              <button class="control-btn reject-btn" disabled>Отказать</button>
+              <button class="control-btn view-btn">Просмотреть</button>
+            </div>
+            <div class="controls-right">
+              <!-- dropdown фильтров -->
+              <div class="filter-control control ">
+                <button class="control-btn filter-btn" id="filter-btn">
+                  <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.6729 1.80711H11.5718C11.4297 1.35608 11.1476 0.962101 10.7663 0.682425C10.385 0.402749 9.92443 0.251953 9.45157 0.251953C8.9787 0.251953 8.51815 0.402749 8.13686 0.682425C7.75556 0.962101 7.47339 1.35608 7.33135 1.80711H0.785371C0.608578 1.80711 0.439027 1.87734 0.314016 2.00236C0.189005 2.12737 0.118774 2.29692 0.118774 2.47371C0.118774 2.6505 0.189005 2.82005 0.314016 2.94507C0.439027 3.07008 0.608578 3.14031 0.785371 3.14031H7.33046C7.4725 3.59134 7.75467 3.98532 8.13597 4.265C8.51726 4.54467 8.97781 4.69547 9.45068 4.69547C9.92355 4.69547 10.3841 4.54467 10.7654 4.265C11.1467 3.98532 11.4289 3.59134 11.5709 3.14031H13.6729C13.8497 3.14031 14.0192 3.07008 14.1443 2.94507C14.2693 2.82005 14.3395 2.6505 14.3395 2.47371C14.3395 2.29692 14.2693 2.12737 14.1443 2.00236C14.0192 1.87734 13.8497 1.80711 13.6729 1.80711Z"
+                      fill="#606483" />
+                    <path
+                      d="M0.785371 9.36224C0.608578 9.36224 0.439027 9.43247 0.314016 9.55748C0.189005 9.68249 0.118774 9.85204 0.118774 10.0288C0.118774 10.2056 0.189005 10.3752 0.314016 10.5002C0.439027 10.6252 0.608578 10.6954 0.785371 10.6954H2.88648C3.0283 11.1468 3.31043 11.5411 3.69184 11.8211C4.07324 12.101 4.53403 12.252 5.00715 12.252C5.48027 12.252 5.94105 12.101 6.32245 11.8211C6.70386 11.5411 6.98599 11.1468 7.12781 10.6954H13.6729C13.8497 10.6954 14.0192 10.6252 14.1443 10.5002C14.2693 10.3752 14.3395 10.2056 14.3395 10.0288C14.3395 9.85204 14.2693 9.68249 14.1443 9.55748C14.0192 9.43247 13.8497 9.36224 13.6729 9.36224H7.12781C6.98599 8.91087 6.70386 8.51653 6.32245 8.23657C5.94105 7.95662 5.48027 7.80566 5.00715 7.80566C4.53403 7.80566 4.07324 7.95662 3.69184 8.23657C3.31043 8.51653 3.0283 8.91087 2.88648 9.36224H0.785371Z"
+                      fill="#606483" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Виды приглашений -->
+              <div class="typeinv-control control ">
+                <button class="control-btn drop-right typeinv-btn" id="typeinv-btn">
+                  <img src="./img/coolicon.svg" alt="">
+                  Все виды приглашений
+                </button>
+                <div class="typeinv-modal control-modal closed">
+                  <ul class="control-list">
+                    <p class="typeinv-item all-inv">
+                      <!-- <img src="./img/typeinv1.svg" alt=""> -->
+                      <img src="./img/coolicon.svg" alt="">
+                      Все виды приглашений
+                    </p>
+                    <p class="typeinv-item video-inv">
+                      <img src="./img/typeinv2.svg" alt="">
+                      Видеособеседование
+                    </p>
+                    <p class="typeinv-item interview-inv">
+                      <img src="./img/typeinv3.svg" alt="">
+                      Интервью в офисе
+                    </p>
+                    <p class="typeinv-item call-inv">
+                      <img src="./img/typeinv4.svg" alt="">
+                      Аудиозвонок
+                    </p>
+                    <p class="typeinv-item test-inv">
+                      <img src="./img/typeinv5.svg" alt="">
+                      Тестовое задание
+                    </p>
+                    <p class="typeinv-item offer-inv">
+                      <img src="./img/typeinv6.svg" alt="">
+                      Предложение о работе
+                    </p>
+                    <p class="typeinv-item work-inv">
+                      <img src="./img/typeinv7.svg" alt="">
+                      Выход на работу
+                    </p>
+                    <p class="typeinv-item reject-inv">
+                      <img src="./img/typeinv8.svg" alt="">
+                      Отказ
+                    </p>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- dropdown сортировки -->
+              <div class="sort-control control ">
+                <button class="control-btn drop-right sort-btn">По соответствию</button>
+                <div class="control-modal sort-modal closed">
+                  <ul class="sort-list control-list text-s14-h20-w400">
+                    <li class="sort-item active-li">По соответствию</li>
+                    <li class="sort-item">По дате изменения</li>
+                    <li class="sort-item">По убыванию зарплат</li>
+                    <li class="sort-item">По возрастанию зарплат</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- control input -->
+              <div class="input-control">
+                <div class="input-wrap">
+                  <input type="text" placeholder="" class="closed">
+                </div>
+                <button class="control-btn input-btn"></button>
+              </div>
+
+              <!-- control вид -->
+              <div class="view-control control ">
+                <button class="control-btn view-control-btn">Вид</button>
+                <div class="control-modal view-modal closed">
+                  <div class="view-list">
+                    <!-- время изменения change-time +-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" class="view-item" data-value="change-time" checked>
+                        <span></span>
+                        <p>Время изменения</p>
+                      </label>
+                    </div>
+                    <!--о себе | about-me-->
+                    <div class="item not-def">
+                      <label>
+                        <input type="checkbox" data-value="about-me">
+                        <span></span>
+                        <p>О себе</p>
+                      </label>
+                    </div>
+                    <!--ФИО | full-name +-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="full-name" checked>
+                        <span></span>
+                        <p>ФИО</p>
+                      </label>
+                    </div>
+                    <!--фото | photo-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="photo" checked>
+                        <span></span>
+                        <p>Фото</p>
+                      </label>
+                    </div>
+                    <!--два последних места работы | two-last-jobs -->
+                    <div class="item not-def">
+                      <label>
+                        <input type="checkbox" data-value="two-last-jobs">
+                        <span></span>
+                        <p>2 последних места работы</p>
+                      </label>
+                    </div>
+                    <!-- моя заметка | my-note +-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="my-note" checked>
+                        <span></span>
+                        <p>Моя заметка</p>
+                      </label>
+                    </div>
+                    <!-- знание ин.языков | foreign-languages -->
+                    <div class="item not-def">
+                      <label>
+                        <input type="checkbox" data-value="foreign-languages">
+                        <span></span>
+                        <p>Знание иностранных языков</p>
+                      </label>
+                    </div>
+                    <!-- город/регион | location +-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="location" checked>
+                        <span></span>
+                        <p>Город, регион</p>
+                      </label>
+                    </div>
+                    <!-- образование | education -->
+                    <div class="item not-def not-def">
+                      <label>
+                        <input type="checkbox" data-value="education">
+                        <span></span>
+                        <p>Основное образование</p>
+                      </label>
+                    </div>
+                    <!-- гражданство | citizenship -->
+                    <div class="item not-def not-def">
+                      <label>
+                        <input type="checkbox" data-value="citizenship">
+                        <span></span>
+                        <p>Гражданство</p>
+                      </label>
+                    </div>
+                    <!-- все компании и места работы | all-jobs +-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="all-jobs" checked>
+                        <span></span>
+                        <p>Все компании и места работы</p>
+                      </label>
+                    </div>
+                    <!-- проф.область | category +-->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="category" checked>
+                        <span></span>
+                        <p>Проф. область (категория)</p>
+                      </label>
+                    </div>
+                    <!-- готовность к переезду | relocate -->
+                    <div class="item not-def">
+                      <label>
+                        <input type="checkbox" data-value="relocate">
+                        <span></span>
+                        <p>Готовность к переезду</p>
+                      </label>
+                    </div>
+                    <!-- Опыт работы | work-experience -->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="work-experience" checked>
+                        <span></span>
+                        <p>Опыт работы (стаж)</p>
+                      </label>
+                    </div>
+                    <!-- портфолио | portfolio -->
+                    <div class="item not-def">
+                      <label>
+                        <input type="checkbox" data-value="portfolio">
+                        <span></span>
+                        <p>Портфолио</p>
+                      </label>
+                    </div>
+                    <!-- Рекомендательные письма | recommendation-mails -->
+                    <div class="item not-def">
+                      <label>
+                        <input type="checkbox" data-value="recommendation-mails">
+                        <span></span>
+                        <p>Рекомендательные письма</p>
+                      </label>
+                    </div>
+                    <!-- История откликов | response-history -->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="response-history" checked>
+                        <span></span>
+                        <p>История откликов</p>
+                      </label>
+                    </div>
+                    <!-- Статус резюме | status-block -->
+                    <div class="item">
+                      <label>
+                        <input type="checkbox" data-value="status-block" checked>
+                        <span></span>
+                        <p>Статус резюме</p>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="view-modal-btns">
+                    <button class="view-cancel">Сбросить</button>
+                    <button class="view-done">Сохранить</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- чекбокс 'только новые' -->
+              <div class="item item-only-new text-s12-h14-w400">
+                <label>
+                  <input type="checkbox" class="only-new">
+                  <span></span>
+                  <p>Только новые</p>
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <!-- счетчик выбранных карточек -->
+          <div class="choosen-responses closed">
+            <p><span class="word-choosen">Выбран</span> <span class="responses-counter"></span> <span
+                class="word-response">отклик</span> на странице</p>
+          </div>
+          <!-- окно фильтров -->
+          <div class="filter-block">
+            <div class="filters">
+
+              <div class="first-col filters__col">
+                <div class="filters__age-category">
+                  <div class="age-filter filters__item">
+                    <h2>Возраст</h2>
+                    <div class="filters__age">
+                      <div class="filter-input-wrap-age">
+                        <p>от</p>
+                        <input class="filters__age_input filters_input filters__age_input-from" type="text"
+                          maxlength="2">
+                      </div>
+                      <div class="filter-input-wrap-age">
+                        <p>до</p>
+                        <input class="filters__age_input filters_input filters__age_input-to" type="text" maxlength="2">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="category-filter filters__item">
+                    <h2>Категории</h2>
+                    <div class="filters__category_input filters_input filters_input-modal categories__filter">
+                      <p>
+                        <span class="word-category-choosen"></span>
+                        <span class="word-category-count"></span>
+                        <span class="word-category-category"></span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="region-filter region__filter filters__item">
+                  <h2>Регион</h2>
+                  <div class="filters__region">
+                    <div class="filters_input region__filter-top margin-bottom filters_input-modal">
+                      <p>
+                        <span class="word-region-choosen"></span>
+                        <span class="word-region-count"></span>
+                        <span class="word-region-region"></span>
+                      </p>
+                    </div>
+                    <div class="region__dropdown filters__dropdown">
+                      <div class="region__dropdown_btn filters_input-dropdown filters_input">Не имеет значения</div>
+                      <div class="region__dropdown-modal_wrapper closed">
+                        <div class="region__dropdown-modal">
+                          <div class="region__dropdown-list filters__dropdown-list">
+                            <div class="item radio-btn">
+                              <label>
+                                <p>Не имеет значения</p>
+                                <input type="radio" name="moving-rad">
+                                <span></span>
+                              </label>
+                            </div>
+                            <div class="item radio-btn">
+                              <label>
+                                <p>Готов к переезду</p>
+                                <input type="radio" name="moving-rad" checked>
+                                <span></span>
+                              </label>
+                            </div>
+                            <div class="item radio-btn">
+                              <label>
+                                <p>Не готов к переезду</p>
+                                <input type="radio" name="moving-rad">
+                                <span></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="second-col filters__col">
+                <!-- пол -->
+                <div class="sex-filter filters__item">
+                  <h2>Пол</h2>
+                  <div class="filters__sex">
+                    <div class="item radio-btn">
+                      <label data-value="1">
+                        <input type="radio" name="filters__sex-item" checked>
+                        <span></span>
+                        <p>Не имеет значения</p>
+                      </label>
+                    </div>
+                    <div class="item radio-btn">
+                      <label data-value="1">
+                        <input type="radio" name="filters__sex-item">
+                        <span></span>
+                        <p>Мужской</p>
+                      </label>
+                    </div>
+                    <div class="item radio-btn">
+                      <label data-value="1">
+                        <input type="radio" name="filters__sex-item">
+                        <span></span>
+                        <p>Женский</p>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- гражданство -->
+                <div class="citizenship-filter filters__item">
+                  <h2>Гражданство</h2>
+                  <div class="citizenship__dropdown filters__dropdown">
+                    <div class="citizenship__dropdown_btn filters_input-dropdown filters_input">Страна</div>
+                    <div class="citizenship__filter-list_wrapper closed">
+                      <div class="citizenship__filter-list filters__dropdown-list checks__list">
+                        <div class="item" data-value="41">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Россия</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="42">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Азербайджан</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="43">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Армения</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="44">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Беларусь</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="45">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Грузия</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="46">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Казахстан</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="47">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Киргызстан</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="48">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Латвия</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="49">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Литва</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="50">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Молдова</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="51">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Таджикистан</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="52">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Туркменистан</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="53">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Туркмения</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="54">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Узбекистан</p>
+                          </label>
+                        </div>
+                        <div class="item" data-value="55">
+                          <label>
+                            <input type="checkbox">
+                            <span></span>
+                            <p>Украина</p>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="third-col filters__col">
+                <!-- опыт работы -->
+                <div class="experience-filter filters__item">
+                  <h2>Опыт работы</h2>
+                  <div class="filters__experience checks__list">
+                    <div class="item" data-value="22">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>Нет опыта</p>
+                      </label>
+                    </div>
+                    <div class="item" data-value="21">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>От 1 года до 3 лет</p>
+                      </label>
+                    </div>
+                    <div class="item" data-value="23">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>От 3 до 6 лет</p>
+                      </label>
+                    </div>
+                    <div class="item" data-value="24">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>Более 6 лет</p>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- знание языков -->
+                <div class="languages__list2 text-s14-h20-w400">
+                  <h6 class="text-s14-h20-w500">Знание языков</h6>
+                  <div class="languages2 one" data-count="0">
+                    <div class="select-language2">
+                      <div class="header2">
+                        <p class="item" data-value="" data-name="">Выберите
+                          язык</p>
+                        <div class="lang-img-wrapper">
+                          <img class="arrow-drop" src="img/arr-down.svg" alt="arrow">
+                        </div>
+                      </div>
+                      <div class="list2_wrapper hide">
+                        <div class="list2">
+                          <div class="item" data-value="english" data-name="Английский">
+                            Английский
+                          </div>
+                          <div class="item" data-value="deutsch" data-name="Немецкий">
+                            Немецкий
+                          </div>
+                          <div class="item" data-value="chinese" data-name="Китайский">
+                            Китайский
+                          </div>
+                          <div class="item" data-value="hindi" data-name="Хинди">
+                            Хинди
+                          </div>
+                          <div class="item" data-value="spanish" data-name="Испанский">
+                            Испанский
+                          </div>
+                          <div class="item" data-value="russian" data-name="Русский">
+                            Русский
+                          </div>
+                          <div class="item" data-value="portuguese" data-name="Португальский">
+                            Португальский
+                          </div>
+                          <div class="item" data-value="indonesian" data-name="Индонезийский">
+                            Индонезийский
+                          </div>
+                          <div class="item" data-value="arab" data-name="Арабский">
+                            Арабский
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="select-lavel2 dont-click">
+                      <div class=" header2">
+                        <p class="item" data-value="" data-name="">
+                          Выберите уровень</p>
+                        <div class="lang-img-wrapper">
+                          <img class="arrow-drop" src="img/arr-down.svg" alt="arrow">
+                        </div>
+                      </div>
+                      <div class="list2_wrapper hide">
+                        <div class="list2">
+                          <div class="item" data-value="Родной" data-name="Родной">
+                            Родной
+                          </div>
+                          <div class="item" data-value="A2" data-name="А2 – ниже среднего">
+                            А2 – ниже среднего
+                          </div>
+                          <div class="item" data-value="B1" data-name="В1 – средний">
+                            В1 – средний
+                          </div>
+                          <div class="item" data-value="B2" data-name="В2 – выше среднего">
+                            В2 – выше среднего
+                          </div>
+                          <div class="item" data-value="C1" data-name="C1 – продвинутый">
+                            C1 – продвинутый
+                          </div>
+                          <div class="item" data-value="C2" data-name="C2 – профессиональный">
+                            C2 – профессиональный
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="language-controls2 text-s12-h14-w400">
+                      <button class="remove-language2 ">Удалить</button>
+                      <button class="clear-language2">Сбросить</button>
+                    </div>
+                  </div>
+                  <button class="add-language2 dont-click text-s12-h14-w400">+Добавить язык</button>
+                </div>
+
+
+              </div>
+              <div class="fourth-col filters__col">
+                <div class="wage-filter filters__item">
+                  <h2>Заработная плата</h2>
+                  <div class="filters__wage">
+                    <div class="filter-input-wage-wrap">
+                      <p class="text-s14-h20-w400">от</p>
+                      <input class="filters__wage_input filters__wage_input-from filters_input" type="text"
+                        maxlength="9">
+                    </div>
+                    <div class="filter-input-wage-wrap">
+                      <p class="text-s14-h20-w400">до</p>
+                      <input class="filters__wage_input filters__wage_input-to filters_input" type="text" maxlength="9">
+                    </div>
+                  </div>
+                </div>
+                <div class="driver-license-filter filters__item">
+                  <h2>Авто и категории прав</h2>
+                  <div class="driver-license__filter checks__list">
+                    <div class="item" data-value="31">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>Есть свой автомобиль</p>
+                      </label>
+                    </div>
+                    <div class="item" data-value="32">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>Категория прав A</p>
+                      </label>
+                    </div>
+                    <div class="item" data-value="33">
+                      <label>
+                        <input type="checkbox">
+                        <span></span>
+                        <p>Категория прав В</p>
+                      </label>
+                    </div>
+                    <div class="driver-license__filter-hidden closed">
+                      <div class="item" data-value="34">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав D</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="35">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав E</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="36">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав AE</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="37">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав BE</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="38">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав CE</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="39">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав DE</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="40">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав Tm</p>
+                        </label>
+                      </div>
+                      <div class="item" data-value="101">
+                        <label>
+                          <input type="checkbox">
+                          <span></span>
+                          <p>Категория прав Tb</p>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="driver-show-more">Ещё 10</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="mainFilter-clear-wrapper">
+              <div class="mainFilter-clear text-s12-h14-w400">Очистить фильтр</div>
+            </div>
+          </div>
+          <div class="choosen-filters text-s12-h14-w400">
+            <div class="choosen-filters__filter-items">
+
+              <div class="filter-items__age-wrap closed">
+                <div class="filter-items__age">
+                  <div class="filter-item-text">
+                    <p class="choosen-filters__ageInpFrom closed">
+                      от
+                      <span class="ageInpFrom"></span>
+                    </p>
+                    <p class="choosen-filters__ageInpTo closed">
+                      до
+                      <span class="ageInpTo"></span>
+                    </p>
+                  </div>
+                  <img class="choosen-filters__age-clear" src="../responses/img/filter-del.svg" alt="">
+                </div>
+              </div>
+              <div class="filter-items__wage-wrap closed">
+                <div class="filter-items__wage">
+                  <div class="filter-item-text">
+                    <p class="choosen-filters__wageInpFrom closed">
+                      от
+                      <span class="wageInpFrom"></span>₽
+                    </p>
+                    <p class="choosen-filters__wageInpTo closed">
+                      до
+                      <span class="wageInpTo"></span>₽
+                    </p>
+                  </div>
+                  <img class="choosen-filters__wage-clear" src="../responses/img/filter-del.svg" alt="">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Страницы -->
+          <section class="all-responses page__item">
+            <div class="response-card" data-value="card1">
+              <input type="hidden" class="add-time" data-time='03/18/2022 15:34:44'>
+              <div class="item-check">
+                <label data-value="1">
+                  <input type="checkbox" class="card-check">
+                  <span></span>
+                </label>
+              </div>
+              <div class="person-info">
+                <div class="photo-massage">
+                  <div class="photo-wrapper">
+                    <img src="./img/bm.jpg" alt="" class="photo">
+                  </div>
+                  <div class="person-massage">
+                    <div class="message-block">
+                      <div class="massage-text text-s14-h20-w400">
+                        <p><span>Мое имя Руслан , я приехал в СПБ 5 лет назад из региона ДВ.
+                            Родился в маленьком городе Уссурийск , это не далеко от Владивостока омывается двумя
+                            заливами
+                            (Амурский и Уссурийский ) вытекающих из Японского моря .
+
+                            Около 2-х месяцев назад , четко понял , что сфера общественного питания не подходит для
+                            моего
+                            дальнейшего развития .
+
+                            Было принято решение переквалифицироваться и освоить новые навыки.
+
+                            Интерес упал в сферу Digital , так как мое увлечение не сидеть на месте.
+
+                            Я очень люблю путешествовать , посетил много разных стран ,городов , люблю новые впечатления
+                            .
+                            К чему это я , да к тому , что данная сфера , дает большие возможности на реализацию себя ,
+                            своего потенциала , и исполнения своих самых сокровенных желаний ну и самое главное это
+                            удаленная работа ( но я понимаю , что не все сразу ), нужно много и еще раз много учиться ,
+                            к
+                            этому я готов.
+
+                            Так вот о чем я ?
+
+                            О том , что после долгой выборки между профессиями я остановил свой выбор на направление
+                            frontend-разработчик.
+
+                            Зацепило меня , то , что в данном направление код написанный тобой , с ним можно
+                            коммуницировать
+                            , и видеть изменения в режиме live на экране монитора .
+
+                            На данном этапе я освоил следующие навыки :
+
+                            Базовое знание HTML5, CSS3, JS, jQuery, React;
+
+                            Знание библиотеки Bootstrap, кроссбраузерной и адаптивной верстки;
+
+                            Теоретическое знание PHP.
+
+                            Базовое знание Adobe Photoshop, Illustrator.</span></p>
+                      </div>
+                      <div class="massage-controls">
+                        <span class="message-show">Открыть письмо</span>
+                        <span class="message-date">14.09.21 в 20:00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="person-data">
+                  <div class="first-text person-data-text">
+                    <a href="#" class="response-label">Художник-костюмер с навыками управляющего менеджера</a>
+                    <h3>40 000 ₽</h3>
+                    <div class="green-text change-time">Обновлено 2 марта в 08:47</div>
+                  </div>
+                  <div class="second-text person-data-text">
+                    <p class="w500 full-name">Зенкова Екатерина Игоревна, 32 года</p>
+                    <p class="location">Санкт-Петербург, ст. м. Маяковская</p>
+                    <span>Был(а) на сайте 20 минут назад</span>
+                    <span>Откликнулся 21 марта, 17:30</span>
+                  </div>
+                  <div class="third-text work-experience person-data-text">
+                    <span class="person-info-label">Опыт работы</span>
+                    <p>2 года 5 месяцев</p>
+                  </div>
+                  <div class="two-last-jobs person-data-text addit-person-data closed">
+                    <span class="person-info-label">Последние два места работы</span>
+                    <p>
+                      Лента, федеральная розничная сеть,
+                      <span class="person-info-label"> Май 2013 — Ноябрь 2020</span>
+                    </p>
+                    <div class="job-item">
+                      <p class="card-dropdown">
+                        Менеджер по экономической безопасности
+                        <img src="./img/arr-down.svg" alt="">
+                      </p>
+                      <p class="job-description closed">
+                        Модерация сайта ( загрузка объявлений,проверка объявлений,фото, рекламных баннеров
+                        на сайт)
+                        Обслуживание и техническая поддержка клиентов (консультация и помощь с
+                        сайтом,создание личного кабинета,помощь с доступом в личный кабинет)
+                        Работа с заявками с сайта и входящими/исходящими звонками (физические и юридические
+                        лица)
+                        Консультация и деловая переписка по телефону, почте и на сайте
+                        Проведение переговоров и презентаций продукта по телефону
+                        Ведение отчетности/статистики
+                        Развитие клиентской базы (горячие и холодные звонки)
+                        Работа с программами Microsoft Office, Битрикс24,Google Docs
+                        Работа на выставках, рекламирование и презентация продукта, привлечение новых
+                        клиентов
+                        Огромный опыт в Контакт-центре (200-250 звонков в день)
+                        Выполнение поручений руководителя (отправить письмо, ответить на звонок, связаться с
+                        клиентом)
+                      </p>
+                    </div>
+                    <p>
+                      Паназиатский ресторан “Zuma” г. Владивосток,
+                      <span class="person-info-label"> Январь 2019 — Ноябрь 2020</span>
+                    </p>
+                    <div class="job-item">
+                      <p class="card-dropdown">
+                        Менеджер по экономической безопасности
+                        <img src="./img/arr-down.svg" alt="">
+                      </p>
+                      <p class="job-description closed">
+                        Модерация сайта ( загрузка объявлений,проверка объявлений,фото, рекламных баннеров
+                        на сайт)
+                        Обслуживание и техническая поддержка клиентов (консультация и помощь с
+                        сайтом,создание личного кабинета,помощь с доступом в личный кабинет)
+                        Работа с заявками с сайта и входящими/исходящими звонками (физические и юридические
+                        лица)
+                        Консультация и деловая переписка по телефону, почте и на сайте
+                        Проведение переговоров и презентаций продукта по телефону
+                        Ведение отчетности/статистики
+                        Развитие клиентской базы (горячие и холодные звонки)
+                        Работа с программами Microsoft Office, Битрикс24,Google Docs
+                        Работа на выставках, рекламирование и презентация продукта, привлечение новых
+                        клиентов
+                        Огромный опыт в Контакт-центре (200-250 звонков в день)
+                        Выполнение поручений руководителя (отправить письмо, ответить на звонок, связаться с
+                        клиентом)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="fourth-text all-jobs person-data-text">
+                    <span class="person-info-label">Все места работы</span>
+                    <p>Я.Практикум,<span>Январь 2019 — Ноябрь 2020</span></p>
+                    <p>СпбГТИ(ТУ), Абрис +, Алкор Био, <span>Январь 2019 — Ноябрь 2020</span></p>
+                    <p>Сеть книжных магазинов "Буквоед", <span>Январь 2019 — Ноябрь 2020</span></p>
+                  </div>
+                  <div class="fifth-text category person-data-text">
+                    <span class="person-info-label">Проф. область</span>
+                    <p>Информационные технологии, интернет, телеком — Программирование, Разработка — Web инженер — Web
+                      мастер</p>
+                  </div>
+                  <div class="education person-data-text closed">
+                    <span class="person-info-label">Основное образование</span>
+                    <p>Санкт-Петербургский государственный технологический институт (технический университет),
+                      Санкт-Петербург (2016)</p>
+                    <p>Санкт-Петербургский государственный технологический институт (технический университет),
+                      Санкт-Петербург (2014)</p>
+                  </div>
+                  <div class="citizenship person-data-text closed">
+                    <span class="person-info-label">Гражданство</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="relocate person-data-text closed">
+                    <span class="person-info-label">Готовность к переезду</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="foreign-languages person-data-text closed">
+                    <span class="person-info-label">Знания иностранных языков</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="portfolio person-data-text closed">
+                    <span class="person-info-label">Портфолио</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="recommendation-mails person-data-text closed">
+                    <span class="person-info-label">Рекомендательные письма</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="about-me person-data-text closed">
+                    <span class="person-info-label">Рекомендательные письма</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-controls">
+                <div class="first-block">
+                  <div class="save text-s12-h14-w500">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.4406 8.34604L12 8.97256L12.5594 8.34604C13.2895 7.52847 14.4221 7.00195 15.6 7.00195C17.6837 7.00195 19.25 8.54561 19.25 10.4481C19.25 11.6319 18.6988 12.7709 17.5557 14.1036C16.4053 15.4449 14.745 16.8826 12.6694 18.6776L12.6683 18.6785L11.9981 19.2604L11.3312 18.6857C11.3309 18.6855 11.3306 18.6853 11.3304 18.685C9.25495 16.8864 7.59488 15.447 6.44446 14.1048C5.30124 12.7709 4.75 11.6319 4.75 10.4481C4.75 8.54561 6.3163 7.00195 8.4 7.00195C9.57788 7.00195 10.7105 7.52847 11.4406 8.34604Z"
+                        stroke="#606483" stroke-width="1.5" />
+                    </svg>
+                    Сохранить резюме
+                  </div>
+                  <div class="note my-note">
+                    <input type="text" placeholder="Моя заметка">
+                  </div>
+                  <div class="status-block">
+                    <p class="card-controls-label text-s12-h14-w500">Статус резюме</p>
+                    <a href="#" class="status-item video-interview">
+                      <div class="status-text">
+                        <p></p>
+                        <span>25 апреля 12:00 (МСК)</span>
+                      </div>
+                      <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M3.95837 1.50195L7.00127 4.54485C7.39179 4.93537 7.39179 5.56854 7.00127 5.95906L3.95837 9.00195"
+                          stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="second-block">
+                  <div class="response-history">
+                    <p class="card-controls-label text-s12-h14-w500">История откликов</p>
+                    <div class="response-info-wrapper" style="overflow-y: hidden;">
+                      <div class="response-info-list">
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="showAll-history closed">Показать всю историю</span>
+                  </div>
+                  <div class="status-controls">
+                    <button class="status-control status-invite"></button>
+                    <button class="status-control status-chat"></button>
+                    <button class="status-control status-clock"></button>
+                    <div class="status-more-wrapper">
+                      <button class="status-control status-more"></button>
+                      <div class="more-modal closed">
+                        <ul>
+                          <li class="status-reject">Отказать</li>
+                          <li class="status-no-show">Не пришёл</li>
+                          <li class="status-complain">Пожаловаться на отклик</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="response-card" data-value="card2">
+              <input type="hidden" class="add-time" data-time='04/18/2022 15:34:44'>
+              <div class="item-check">
+                <label data-value="1">
+                  <input type="checkbox" class="card-check">
+                  <span></span>
+                </label>
+              </div>
+              <div class="person-info">
+                <div class="photo-massage">
+                  <div class="photo-wrapper">
+                    <img src="./img/bm.jpg" alt="" class="photo">
+                  </div>
+                  <div class="person-massage">
+                    <div class="message-block">
+                      <div class="massage-text text-s14-h20-w400">
+                        <p><span>Мое имя Руслан , я приехал в СПБ 5 лет назад из региона
+                            ДВ.111111111111111111111111111111111111111111</span></p>
+                      </div>
+                      <div class="massage-controls">
+                        <span class="message-show">Открыть письмо</span>
+                        <span class="message-date">14.09.21 в 20:00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="person-data">
+                  <div class="first-text person-data-text">
+                    <a href="#" class="response-label">Художник-костюмер с навыками управляющего менеджера</a>
+                    <h3>40 000 ₽</h3>
+                    <div class="green-text change-time">Обновлено 2 марта в 08:47</div>
+                  </div>
+                  <div class="second-text person-data-text">
+                    <p class="w500 full-name">Зенкова Екатерина Игоревна, 32 года</p>
+                    <p class="location">Санкт-Петербург, ст. м. Маяковская</p>
+                    <span>Был(а) на сайте 20 минут назад</span>
+                    <span>Откликнулся 21 марта, 17:30</span>
+                  </div>
+                  <div class="third-text work-experience person-data-text">
+                    <span class="person-info-label">Опыт работы</span>
+                    <p>2 года 5 месяцев</p>
+                  </div>
+                  <div class="two-last-jobs person-data-text addit-person-data closed">
+                    <span class="person-info-label">Последние два места работы</span>
+                    <p>
+                      Лента, федеральная розничная сеть,
+                      <span class="person-info-label"> Май 2013 — Ноябрь 2020</span>
+                    </p>
+                    <div class="job-item">
+                      <p class="card-dropdown">
+                        Менеджер по экономической безопасности
+                        <img src="./img/arr-down.svg" alt="">
+                      </p>
+                      <p class="job-description closed">
+                        Модерация сайта ( загрузка объявлений,проверка объявлений,фото, рекламных баннеров
+                        на сайт)
+                        Обслуживание и техническая поддержка клиентов (консультация и помощь с
+                        сайтом,создание личного кабинета,помощь с доступом в личный кабинет)
+                        Работа с заявками с сайта и входящими/исходящими звонками (физические и юридические
+                        лица)
+                        Консультация и деловая переписка по телефону, почте и на сайте
+                        Проведение переговоров и презентаций продукта по телефону
+                        Ведение отчетности/статистики
+                        Развитие клиентской базы (горячие и холодные звонки)
+                        Работа с программами Microsoft Office, Битрикс24,Google Docs
+                        Работа на выставках, рекламирование и презентация продукта, привлечение новых
+                        клиентов
+                        Огромный опыт в Контакт-центре (200-250 звонков в день)
+                        Выполнение поручений руководителя (отправить письмо, ответить на звонок, связаться с
+                        клиентом)
+                      </p>
+                    </div>
+                    <p>
+                      Паназиатский ресторан “Zuma” г. Владивосток,
+                      <span class="person-info-label"> Январь 2019 — Ноябрь 2020</span>
+                    </p>
+                    <div class="job-item">
+                      <p class="card-dropdown">
+                        Менеджер по экономической безопасности
+                        <img src="./img/arr-down.svg" alt="">
+                      </p>
+                      <p class="job-description closed">
+                        Модерация сайта ( загрузка объявлений,проверка объявлений,фото, рекламных баннеров
+                        на сайт)
+                        Обслуживание и техническая поддержка клиентов (консультация и помощь с
+                        сайтом,создание личного кабинета,помощь с доступом в личный кабинет)
+                        Работа с заявками с сайта и входящими/исходящими звонками (физические и юридические
+                        лица)
+                        Консультация и деловая переписка по телефону, почте и на сайте
+                        Проведение переговоров и презентаций продукта по телефону
+                        Ведение отчетности/статистики
+                        Развитие клиентской базы (горячие и холодные звонки)
+                        Работа с программами Microsoft Office, Битрикс24,Google Docs
+                        Работа на выставках, рекламирование и презентация продукта, привлечение новых
+                        клиентов
+                        Огромный опыт в Контакт-центре (200-250 звонков в день)
+                        Выполнение поручений руководителя (отправить письмо, ответить на звонок, связаться с
+                        клиентом)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="fourth-text all-jobs person-data-text">
+                    <span class="person-info-label">Все места работы</span>
+                    <p>Я.Практикум,<span>Январь 2019 — Ноябрь 2020</span></p>
+                    <p>СпбГТИ(ТУ), Абрис +, Алкор Био, <span>Январь 2019 — Ноябрь 2020</span></p>
+                    <p>Сеть книжных магазинов "Буквоед", <span>Январь 2019 — Ноябрь 2020</span></p>
+                  </div>
+                  <div class="fifth-text category person-data-text">
+                    <span class="person-info-label">Проф. область</span>
+                    <p>Информационные технологии, интернет, телеком — Программирование, Разработка — Web инженер — Web
+                      мастер</p>
+                  </div>
+                  <div class="education person-data-text closed">
+                    <span class="person-info-label">Основное образование</span>
+                    <p>Санкт-Петербургский государственный технологический институт (технический университет),
+                      Санкт-Петербург (2016)</p>
+                    <p>Санкт-Петербургский государственный технологический институт (технический университет),
+                      Санкт-Петербург (2014)</p>
+                  </div>
+                  <div class="citizenship person-data-text closed">
+                    <span class="person-info-label">Гражданство</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="relocate person-data-text closed">
+                    <span class="person-info-label">Готовность к переезду</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="foreign-languages person-data-text closed">
+                    <span class="person-info-label">Знания иностранных языков</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="portfolio person-data-text closed">
+                    <span class="person-info-label">Портфолио</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="recommendation-mails person-data-text closed">
+                    <span class="person-info-label">Рекомендательные письма</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+                  <div class="about-me person-data-text closed">
+                    <span class="person-info-label">Рекомендательные письма</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-controls">
+                <div class="first-block">
+                  <div class="save text-s12-h14-w500">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.4406 8.34604L12 8.97256L12.5594 8.34604C13.2895 7.52847 14.4221 7.00195 15.6 7.00195C17.6837 7.00195 19.25 8.54561 19.25 10.4481C19.25 11.6319 18.6988 12.7709 17.5557 14.1036C16.4053 15.4449 14.745 16.8826 12.6694 18.6776L12.6683 18.6785L11.9981 19.2604L11.3312 18.6857C11.3309 18.6855 11.3306 18.6853 11.3304 18.685C9.25495 16.8864 7.59488 15.447 6.44446 14.1048C5.30124 12.7709 4.75 11.6319 4.75 10.4481C4.75 8.54561 6.3163 7.00195 8.4 7.00195C9.57788 7.00195 10.7105 7.52847 11.4406 8.34604Z"
+                        stroke="#606483" stroke-width="1.5" />
+                    </svg>
+                    Сохранить резюме
+                  </div>
+                  <div class="note my-note">
+                    <input type="text" placeholder="Моя заметка">
+                  </div>
+                  <div class="status-block">
+                    <p class="card-controls-label text-s12-h14-w500">Статус резюме</p>
+                    <a href="#" class="status-item video-interview">
+                      <div class="status-text">
+                        <p></p>
+                        <span>25 апреля 12:00 (МСК)</span>
+                      </div>
+                      <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M3.95837 1.50195L7.00127 4.54485C7.39179 4.93537 7.39179 5.56854 7.00127 5.95906L3.95837 9.00195"
+                          stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="second-block">
+                  <div class="response-history">
+                    <p class="card-controls-label text-s12-h14-w500">История откликов</p>
+                    <div class="response-info-wrapper" style="overflow-y: hidden;">
+                      <div class="response-info-list">
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+
+                        <div class="response-info">
+                          <p>21 мая 2021</p>
+                          <span>Видеособеседование</span>
+                          <h4>Продавец кассир</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="showAll-history closed">Показать всю историю</span>
+                  </div>
+                  <div class="status-controls">
+                    <button class="status-control status-invite"></button>
+                    <button class="status-control status-chat"></button>
+                    <button class="status-control status-clock"></button>
+                    <div class="status-more-wrapper">
+                      <button class="status-control status-more"></button>
+                      <div class="more-modal closed">
+                        <ul>
+                          <li class="status-reject">Отказать</li>
+                          <li class="status-no-show">Не пришёл</li>
+                          <li class="status-complain">Пожаловаться на отклик</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="invites page__item disabled">Приглашения</section>
+          <section class="think page__item disabled">Подумать</section>
+          <section class="statistics page__item disabled">
+            <main class="statistics-wrapper">
+              <div class="stats">
+                <div class="views-chart stats-item">
+                  <div class="views__label text-s12-h14-w500">Просмотров</div>
+                  <div class="num">
+                    <p class="views__count text-s36-h46-w600">392</p>
+                    <span>+293</span>
+                  </div>
+                </div>
+                <span class="line"></span>
+                <div class="responses-chart stats-item">
+                  <div class="responses__label text-s12-h14-w500">Откликов</div>
+                  <div class="num">
+                    <p class="responses__count text-s36-h46-w600">64</p>
+                    <span>+15</span>
+                  </div>
+                </div>
+                <span class="line"></span>
+                <div class="conversion-chart stats-item">
+                  <div class="conversion__label text-s12-h14-w500">Конверсия в отклик</div>
+                  <div class="num">
+                    <p class="conversion__count text-s36-h46-w600">12%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="line-chart">
+                <canvas id="vnr-chart"></canvas>
+                <div class="line-chart__month text-s12-h14-w400">
+                  <div class="month-start"></div>
+                  <div class="month-end"></div>
+                </div>
+                <div class="controls">
+                  <div class="content-header-btn">
+                    <button class="content-header-btn__employer text-s14-h20-w500 btn-active" id="week">Неделя</button>
+                    <span class="vertical-line">|</span>
+                    <button class="content-header-btn__price text-s14-h20-w500" id="two-week">2 недели</button>
+                    <span class="vertical-line">|</span>
+                    <button class="content-header-btn__price text-s14-h20-w500" id="month">Месяц</button>
+                    <span class="vertical-line">|</span>
+                    <button class="content-header-btn__price text-s14-h20-w500" id="all-time">За всё время</button>
+                    <span class="content-header-btn__slide" style="width: 86px; left: -4px;"></span>
+                  </div>
+                  <div class="line-chart__legend">
+                    <p class="text-s12-h14-w400">просмотры</p>
+                    <p class="text-s12-h14-w400">отклики</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-charts">
+                <div class="radial-chart">
+                  <h1 class="text-s16-h22-w600">Пол</h1>
+                  <div class="rad-graph">
+                    <canvas id="gender-chart"></canvas>
+                    <div class="radial-chart__legend">
+                      <p class="text-s12-h14-w400">Мужчины</p>
+                      <p class="text-s12-h14-w400">Женщины</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="bar-chart">
+                  <h1 class="text-s16-h22-w600">Возраст</h1>
+                  <div class="age-graph">
+                    <div class="less20" data-color="orange"></div>
+                    <div class="plus20" data-color="red"></div>
+                    <div class="plus28" data-color="gray"></div>
+                    <div class="more35" data-color="green"></div>
+                  </div>
+                  <div class="bar-chart__legend">
+                    <div class="age-item orange" data-color="orange">
+                      <p class="age-item__range text-s14-h20-w500">до 20</p>
+                      <div class="age-params">
+                        <span class="age-item__count text-s16-h22-w600"></span>
+                        <span class="age-item__percent text-s14-h20-w400"></span>
+                      </div>
+                    </div>
+                    <div class="age-item red" data-color="red">
+                      <p class="age-item__range text-s14-h20-w500">20 - 28</p>
+                      <div class="age-params">
+                        <span class="age-item__count text-s16-h22-w600"></span>
+                        <span class="age-item__percent text-s14-h20-w400"></span>
+                      </div>
+                    </div>
+                    <div class="age-item gray" data-color="gray">
+                      <p class="age-item__range text-s14-h20-w500">28 - 35</p>
+                      <div class="age-params">
+                        <span class="age-item__count text-s16-h22-w600"></span>
+                        <span class="age-item__percent text-s14-h20-w400"></span>
+                      </div>
+                    </div>
+                    <div class="age-item green" data-color="green">
+                      <p class="age-item__range text-s14-h20-w500">35+</p>
+                      <div class="age-params">
+                        <span class="age-item__count text-s16-h22-w600"></span>
+                        <span class="age-item__percent text-s14-h20-w400"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </section>
+          <section class="nearby page__item disabled">
+            <main class="beside">
+              <div class="beside__buttons">
+                <div class="beside__buttons-distance text-s14-h20-w400">
+                  <button class="distance-btn active">до 5 км</button>
+                  <button class="distance-btn">до 10 км</button>
+                  <button class="distance-btn">до 20 км</button>
+                </div>
+                <div class="content-header-btn">
+                  <button class="text-s14-h20-w500 btn-active" id="view-line"><img src="./img/view-column.svg"></button>
+                  <button class="text-s14-h20-w500" id="view-map"><img src="./img/view-map.svg"></button>
+                  <span class="content-header-btn__slide" style="width: 40px; left: 1px;"></span>
+                </div>
+              </div>
+              <div class="beside__map">
+                <div class="main__map" id="map">
+                  <button class="map__search"></button>
+                  <button class="map__full-screen"></button>
+                  <div class="map__scale">
+                    <button class="map__scale-more"></button>
+                    <button class="map__scale-less"></button>
+                  </div>
+                  <button class="map__location"></button>
+                </div>
+              </div>
+              <div class="response-card" data-value="card1">
+                <input type="hidden" class="add-time" data-time='03/18/2022 15:34:44'>
+                <div class="person-info">
+                  <div class="photo-massage">
+                    <div class="photo-wrapper">
+                      <img src="./img/bm.jpg" alt="" class="photo">
+                    </div>
+                    <div class="person-massage">
+                      <div class="message-block">
+                        <div class="massage-text text-s14-h20-w400">
+                          <p><span>Мое имя Руслан , я приехал в СПБ 5 лет назад из региона ДВ.
+                              Родился в маленьком городе Уссурийск , это не далеко от Владивостока омывается двумя
+                              заливами
+                              (Амурский и Уссурийский ) вытекающих из Японского моря .
+
+                              Около 2-х месяцев назад , четко понял , что сфера общественного питания не подходит для
+                              моего
+                              дальнейшего развития .
+
+                              Было принято решение переквалифицироваться и освоить новые навыки.
+
+                              Интерес упал в сферу Digital , так как мое увлечение не сидеть на месте.
+
+                              Я очень люблю путешествовать , посетил много разных стран ,городов , люблю новые
+                              впечатления
+                              .
+                              К чему это я , да к тому , что данная сфера , дает большие возможности на реализацию
+                              себя
+                              ,
+                              своего потенциала , и исполнения своих самых сокровенных желаний ну и самое главное это
+                              удаленная работа ( но я понимаю , что не все сразу ), нужно много и еще раз много
+                              учиться
+                              ,
+                              к
+                              этому я готов.
+
+                              Так вот о чем я ?
+
+                              О том , что после долгой выборки между профессиями я остановил свой выбор на направление
+                              frontend-разработчик.
+
+                              Зацепило меня , то , что в данном направление код написанный тобой , с ним можно
+                              коммуницировать
+                              , и видеть изменения в режиме live на экране монитора .
+
+                              На данном этапе я освоил следующие навыки :
+
+                              Базовое знание HTML5, CSS3, JS, jQuery, React;
+
+                              Знание библиотеки Bootstrap, кроссбраузерной и адаптивной верстки;
+
+                              Теоретическое знание PHP.
+
+                              Базовое знание Adobe Photoshop, Illustrator.</span></p>
+                        </div>
+                        <div class="massage-controls">
+                          <span class="message-show">Открыть письмо</span>
+                          <span class="message-date">14.09.21 в 20:00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="person-data">
+                    <div class="first-text person-data-text">
+                      <a href="#" class="response-label">Художник-костюмер с навыками управляющего менеджера</a>
+                      <h3>40 000 ₽</h3>
+                      <div class="green-text change-time">Обновлено 2 марта в 08:47</div>
+                    </div>
+                    <div class="second-text person-data-text">
+                      <p class="w500 full-name">Зенкова Екатерина Игоревна, 32 года</p>
+                      <p class="location">Санкт-Петербург, ст. м. Маяковская</p>
+                      <span>Был(а) на сайте 20 минут назад</span>
+                      <span>Откликнулся 21 марта, 17:30</span>
+                    </div>
+                    <div class="third-text work-experience person-data-text">
+                      <span class="person-info-label">Опыт работы</span>
+                      <p>2 года 5 месяцев</p>
+                    </div>
+                    <div class="two-last-jobs person-data-text addit-person-data closed">
+                      <span class="person-info-label">Последние два места работы</span>
+                      <p>
+                        Лента, федеральная розничная сеть,
+                        <span class="person-info-label"> Май 2013 — Ноябрь 2020</span>
+                      </p>
+                      <div class="job-item">
+                        <p class="card-dropdown">
+                          Менеджер по экономической безопасности
+                          <img src="./img/arr-down.svg" alt="">
+                        </p>
+                        <p class="job-description closed">
+                          Модерация сайта ( загрузка объявлений,проверка объявлений,фото, рекламных баннеров
+                          на сайт)
+                          Обслуживание и техническая поддержка клиентов (консультация и помощь с
+                          сайтом,создание личного кабинета,помощь с доступом в личный кабинет)
+                          Работа с заявками с сайта и входящими/исходящими звонками (физические и юридические
+                          лица)
+                          Консультация и деловая переписка по телефону, почте и на сайте
+                          Проведение переговоров и презентаций продукта по телефону
+                          Ведение отчетности/статистики
+                          Развитие клиентской базы (горячие и холодные звонки)
+                          Работа с программами Microsoft Office, Битрикс24,Google Docs
+                          Работа на выставках, рекламирование и презентация продукта, привлечение новых
+                          клиентов
+                          Огромный опыт в Контакт-центре (200-250 звонков в день)
+                          Выполнение поручений руководителя (отправить письмо, ответить на звонок, связаться с
+                          клиентом)
+                        </p>
+                      </div>
+                      <p>
+                        Паназиатский ресторан “Zuma” г. Владивосток,
+                        <span class="person-info-label"> Январь 2019 — Ноябрь 2020</span>
+                      </p>
+                      <div class="job-item">
+                        <p class="card-dropdown">
+                          Менеджер по экономической безопасности
+                          <img src="./img/arr-down.svg" alt="">
+                        </p>
+                        <p class="job-description closed">
+                          Модерация сайта ( загрузка объявлений,проверка объявлений,фото, рекламных баннеров
+                          на сайт)
+                          Обслуживание и техническая поддержка клиентов (консультация и помощь с
+                          сайтом,создание личного кабинета,помощь с доступом в личный кабинет)
+                          Работа с заявками с сайта и входящими/исходящими звонками (физические и юридические
+                          лица)
+                          Консультация и деловая переписка по телефону, почте и на сайте
+                          Проведение переговоров и презентаций продукта по телефону
+                          Ведение отчетности/статистики
+                          Развитие клиентской базы (горячие и холодные звонки)
+                          Работа с программами Microsoft Office, Битрикс24,Google Docs
+                          Работа на выставках, рекламирование и презентация продукта, привлечение новых
+                          клиентов
+                          Огромный опыт в Контакт-центре (200-250 звонков в день)
+                          Выполнение поручений руководителя (отправить письмо, ответить на звонок, связаться с
+                          клиентом)
+                        </p>
+                      </div>
+                    </div>
+                    <div class="fourth-text all-jobs person-data-text">
+                      <span class="person-info-label">Все места работы</span>
+                      <p>Я.Практикум,<span>Январь 2019 — Ноябрь 2020</span></p>
+                      <p>СпбГТИ(ТУ), Абрис +, Алкор Био, <span>Январь 2019 — Ноябрь 2020</span></p>
+                      <p>Сеть книжных магазинов "Буквоед", <span>Январь 2019 — Ноябрь 2020</span></p>
+                    </div>
+                    <div class="fifth-text category person-data-text">
+                      <span class="person-info-label">Проф. область</span>
+                      <p>Информационные технологии, интернет, телеком — Программирование, Разработка — Web инженер —
+                        Web
+                        мастер</p>
+                    </div>
+                    <div class="education person-data-text closed">
+                      <span class="person-info-label">Основное образование</span>
+                      <p>Санкт-Петербургский государственный технологический институт (технический университет),
+                        Санкт-Петербург (2016)</p>
+                      <p>Санкт-Петербургский государственный технологический институт (технический университет),
+                        Санкт-Петербург (2014)</p>
+                    </div>
+                    <div class="citizenship person-data-text closed">
+                      <span class="person-info-label">Гражданство</span>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                    </div>
+                    <div class="relocate person-data-text closed">
+                      <span class="person-info-label">Готовность к переезду</span>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                    </div>
+                    <div class="foreign-languages person-data-text closed">
+                      <span class="person-info-label">Знания иностранных языков</span>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                    </div>
+                    <div class="portfolio person-data-text closed">
+                      <span class="person-info-label">Портфолио</span>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                    </div>
+                    <div class="recommendation-mails person-data-text closed">
+                      <span class="person-info-label">Рекомендательные письма</span>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                    </div>
+                    <div class="about-me person-data-text closed">
+                      <span class="person-info-label">Рекомендательные письма</span>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, autem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, dolorum.</p>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="card-controls">
+                  <div class="first-block">
+                    <div class="save text-s12-h14-w500">
+                      <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M11.4406 8.34604L12 8.97256L12.5594 8.34604C13.2895 7.52847 14.4221 7.00195 15.6 7.00195C17.6837 7.00195 19.25 8.54561 19.25 10.4481C19.25 11.6319 18.6988 12.7709 17.5557 14.1036C16.4053 15.4449 14.745 16.8826 12.6694 18.6776L12.6683 18.6785L11.9981 19.2604L11.3312 18.6857C11.3309 18.6855 11.3306 18.6853 11.3304 18.685C9.25495 16.8864 7.59488 15.447 6.44446 14.1048C5.30124 12.7709 4.75 11.6319 4.75 10.4481C4.75 8.54561 6.3163 7.00195 8.4 7.00195C9.57788 7.00195 10.7105 7.52847 11.4406 8.34604Z"
+                          stroke="#606483" stroke-width="1.5" />
+                      </svg>
+                      Сохранить резюме
+                    </div>
+                    <div class="note my-note">
+                      <input type="text" placeholder="Моя заметка">
+                    </div>
+                    <div class="status-block">
+                      <p class="card-controls-label text-s12-h14-w500">Статус резюме</p>
+                      <a href="#" class="status-item video-interview">
+                        <div class="status-text">
+                          <p></p>
+                          <span>25 апреля 12:00 (МСК)</span>
+                        </div>
+                        <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M3.95837 1.50195L7.00127 4.54485C7.39179 4.93537 7.39179 5.56854 7.00127 5.95906L3.95837 9.00195"
+                            stroke="#000" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="second-block">
+                    <div class="response-history">
+                      <p class="card-controls-label text-s12-h14-w500">История откликов</p>
+                      <div class="response-info-wrapper" style="overflow-y: hidden;">
+                        <div class="response-info-list">
+                          <div class="response-info">
+                            <p>21 мая 2021</p>
+                            <span>Видеособеседование</span>
+                            <h4>Продавец кассир</h4>
+                          </div>
+                          <div class="response-info">
+                            <p>21 мая 2021</p>
+                            <span>Видеособеседование</span>
+                            <h4>Продавец кассир</h4>
+                          </div>
+                          <div class="response-info">
+                            <p>21 мая 2021</p>
+                            <span>Видеособеседование</span>
+                            <h4>Продавец кассир</h4>
+                          </div>
+                          <div class="response-info">
+                            <p>21 мая 2021</p>
+                            <span>Видеособеседование</span>
+                            <h4>Продавец кассир</h4>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="showAll-history closed">Показать всю историю</span>
+                    </div>
+                    <div class="status-controls">
+                      <button class="status-control status-invite"></button>
+                      <button class="status-control status-chat"></button>
+                      <button class="status-control status-clock"></button>
+                      <div class="status-more-wrapper">
+                        <button class="status-control status-more"></button>
+                        <div class="more-modal closed">
+                          <ul>
+                            <li class="status-reject">Отказать</li>
+                            <li class="status-no-show">Не пришёл</li>
+                            <li class="status-complain">Пожаловаться на отклик</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </section>
+          <section class="black-list page__item disabled">Чёрный список</section>
+          <section class="reject page__item disabled">Отказ</section>
+        </div>
+      </div>
+    </div>
+
+    <!-- попап с сообщением -->
+    <div class="message-popup-wrapper">
+      <div class="message-popup">
+        <img class="message-close" src="./img/Close-modal.svg" alt="">
+        <p class="full-message"></p>
+      </div>
+    </div>
+    <!-- попап отказа -->
+    <div class="popup-wrapper popup-reject">
+      <div class="popup-modal">
+        <img class="popup-modal-close" src="./img/Close-modal.svg" alt="">
+        <div class="popup-label">
+          <h1>Отказ</h1>
+        </div>
+
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="reject-mas-popup" class="without-message" checked>
+            <span></span>
+            <p>Без сопроводительного письма</p>
+          </label>
+        </div>
+
+        <div class="popup-textarea">
+          <div class="item radio-btn">
+            <label data-value="1">
+              <input type="radio" name="reject-mas-popup">
+              <span></span>
+              <p>С сопроводительным письмом</p>
+            </label>
+          </div>
+          <textarea id="reject-input" disabled></textarea>
+        </div>
+
+        <div class="modal-btns">
+          <button class="modal-cancel-btn">Отмена</button>
+          <button class="modal-primary-btn red">Отказать</button>
+        </div>
+      </div>
+    </div>
+    <!-- попап причина неявки -->
+    <div class="popup-wrapper popup-no-show">
+      <div class="popup-modal">
+        <img class="popup-modal-close" src="./img/Close-modal.svg" alt="">
+        <div class="popup-label">
+          <h1>Укажите причину неявки на интервью</h1>
+          <p>Соискатель не увидит Вашей отметки</p>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="no-show-mas" checked>
+            <span></span>
+            <p>Форс-мажор</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="no-show-mas">
+            <span></span>
+            <p>Выбрал (а) другую компанию</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="no-show-mas">
+            <span></span>
+            <p>Забыл (а) про собеседование</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="no-show-mas">
+            <span></span>
+            <p>Другая причина</p>
+          </label>
+        </div>
+        <div class="modal-btns">
+          <button class="modal-cancel-btn">Отмена</button>
+          <button class="modal-primary-btn">Указать</button>
+        </div>
+      </div>
+    </div>
+    <!-- попап пожаловаться -->
+    <div class="popup-wrapper popup-complain">
+      <div class="popup-modal">
+        <img class="popup-modal-close" src="./img/Close-modal.svg" alt="">
+        <div class="popup-label">
+          <h1>Пожаловаться на отклик</h1>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="report-mas" checked>
+            <span></span>
+            <p>Реклама в отклике</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="report-mas">
+            <span></span>
+            <p>Реклама в резюме</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="report-mas">
+            <span></span>
+            <p>Слишком много откликов</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="report-mas">
+            <span></span>
+            <p>Бессмыслица в отклике</p>
+          </label>
+        </div>
+        <div class="item radio-btn">
+          <label data-value="1">
+            <input type="radio" name="report-mas">
+            <span></span>
+            <p>Другая причина</p>
+          </label>
+        </div>
+        <div class="item hide-all-responses">
+          <label data-value="1">
+            <input type="checkbox">
+            <span></span>
+            <p>Скрыть все отклики от этого соискателя</p>
+          </label>
+        </div>
+        <div class="modal-btns">
+          <button class="modal-cancel-btn">Отмена</button>
+          <button class="modal-primary-btn">Отправить</button>
+        </div>
+      </div>
+    </div>
+    <!-- сторонние попапы -->
+    <div class="popup-categories">
+      <div class="popup__categories">
+        <h5 class="text-s28-h36-w500">Выберите основную профобласть</h5>
+        <ul>
+          <li data-value="0">
+            <img src="img/icon-0.svg" alt="icon">
+            <p>Авто, сервис, прокат</p>
+          </li>
+          <li data-value="1">
+            <img src="img/icon-1.svg" alt="icon">
+            <p>Администратиивный персонал</p>
+          </li>
+          <li data-value="2">
+            <img src="img/icon-2.svg" alt="icon">
+            <p>Банки, инвестици, лизинг</p>
+          </li>
+          <li data-value="3">
+            <img src="img/icon-3.svg" alt="icon">
+            <p>Безопасность, охрана</p>
+          </li>
+          <li data-value="4">
+            <img src="img/icon-4.svg" alt="icon">
+            <p>Бухгалтерия, финанс, аудит</p>
+          </li>
+          <li data-value="5">
+            <img src="img/icon-5.svg" alt="icon">
+            <p>Высший менеджмент</p>
+          </li>
+          <li data-value="6">
+            <img src="img/icon-6.svg" alt="icon">
+            <p>Госслужба</p>
+          </li>
+          <li data-value="7">
+            <img src="img/icon-7.svg" alt="icon">
+            <p>Добыча сырья</p>
+          </li>
+          <li data-value="8">
+            <img src="img/icon-8.svg" alt="icon">
+            <p>Домашний персонал</p>
+          </li>
+          <li data-value="9">
+            <img src="img/icon-9.svg" alt="icon">
+            <p>Закупки</p>
+          </li>
+          <li data-value="10">
+            <img src="img/icon-10.svg" alt="icon">
+            <p>Инсталляция и сервис</p>
+          </li>
+          <li data-value="11">
+            <img src="img/icon-11.svg" alt="icon">
+            <p>Информационные технологи, интернет, телеком</p>
+          </li>
+          <li data-value="12">
+            <img src="img/icon-12.svg" alt="icon">
+            <p>Искусство, дизай, развлечени</p>
+          </li>
+          <li data-value="13">
+            <img src="img/icon-13.svg" alt="icon">
+            <p>Консультирование</p>
+          </li>
+          <li data-value="14">
+            <img src="img/icon-14.svg" alt="icon">
+            <p>Маркетинг, реклама, PR</p>
+          </li>
+          <li data-value="15">
+            <img src="img/icon-15.svg" alt="icon">
+            <p>Медицина, фармацевтика</p>
+          </li>
+          <li data-value="16">
+            <img src="img/icon-16.svg" alt="icon">
+            <p>Наука, образование</p>
+          </li>
+          <li data-value="17">
+            <img src="img/icon-17.svg" alt="icon">
+            <p>Начало карьер, студенты</p>
+          </li>
+          <li data-value="18">
+            <img src="img/icon-18.svg" alt="icon">
+            <p>Продажи</p>
+          </li>
+          <li data-value="19">
+            <img src="img/icon-19.svg" alt="icon">
+            <p>Производство, СХ отрасль</p>
+          </li>
+          <li data-value="20">
+            <img src="img/icon-20.svg" alt="icon">
+            <p>Рабочий персонал</p>
+          </li>
+          <li data-value="21">
+            <img src="img/icon-21.svg" alt="icon">
+            <p>Спорт, фитнес, красота</p>
+          </li>
+          <li data-value="22">
+            <img src="img/icon-22.svg" alt="icon">
+            <p>Страхование</p>
+          </li>
+        </ul>
+        <div class="popup__categories-btn">
+          <button class="clear text-s14-h20-w500" disabled>Сбросить</button>
+          <button class="next text-s14-h20-w500" disabled>Подтвердить</button>
+        </div>
+      </div>
+    </div>
+    <div class="popup-region">
+      <div class="popup__region">
+        <img src="img/close-popup.svg" alt="close" class="region-close-icon">
+        <h5 class="text-s28-h36-w500">Выберите регион поиска</h5>
+        <div class="popup__region-searh">
+          <input class="search-input" type="text" placeholder="Начните вводить название города">
+          <div class="search-list">
+            <p class="item">Москва</p>
+            <p class="item">Санкт-Петербург</p>
+            <p class="item">Казань</p>
+            <p class="item">Владивосток</p>
+            <p class="item">asdas</p>
+            <p class="item">Влаasdдивосток</p>
+            <p class="item">asdasdasdasdasd</p>
+            <p class="item">zxczxcasd</p>
+            <p class="item">cxvcvxv</p>
+            <p class="item">asasdasdasdaddads</p>
+          </div>
+          <div class="popup__region-list">
+            <div class="region-list__items"></div>
+          </div>
+        </div>
+        <div class="popup__region-btn">
+          <button class="clear text-s14-h20-w500">Сбросить</button>
+          <button class="search text-s14-h20-w500">Подтвердить</button>
+        </div>
+      </div>
+    </div>
+    <!-- --------------------------------------------------AUTO SORT------------------------------------------- -->
+    <div class="auto-sort-wrapper">
+      <div class="auto-sort">
+        <div class="auto-sort__content-wrapper">
+          <div class="auto-sort__content">
+            <div class="auto-sort__text">
+              <h2 class="text-s22-h28-w500">Автоматическая сортировка откликов</h2>
+              <p class="text-s14-h20-w400">
+                Вы можете настроить автоматический разбор откликов по Вашим требованиям с помощью
+                фильтров. Новые отклики,
+                которые им соответствуют, останутся в разделе «Все отклики»
+              </p>
+            </div>
+
+            <div class="auto-sort__checks">
+              <div class="auto-sort__check autoSort-experience">
+                <h3>Опыт работы</h3>
+                <ul>
+
+                  <label data-value="11" class="item">
+                    <input class="exp-inp" type="checkbox">
+                    <span></span>
+                    <p class="exp-text">Нет опыта</p>
+                  </label>
+
+                  <label data-value="12" class="item">
+                    <input type="checkbox">
+                    <span></span>
+                    <p>От 1 года до 3 лет</p>
+                  </label>
+
+                  <label data-value="13" class="item">
+                    <input type="checkbox">
+                    <span></span>
+                    <p>От 3 до 6 лет</p>
+                  </label>
+
+                  <label data-value="14" class="item">
+                    <input type="checkbox">
+                    <span></span>
+                    <p>Более 6 лет</p>
+                  </label>
+                </ul>
+              </div>
+              <div class="auto-sort__check autoSort-format-work">
+                <h3>Формат работы</h3>
+                <ul>
+                  <label data-value="1" class="item">
+                    <input type="checkbox">
+                    <span></span>
+                    <p>В офисе</p>
+                  </label>
+                  <label data-value="2" class="item">
+                    <input type="checkbox">
+                    <span></span>
+                    <p>Удаленно</p>
+                  </label>
+                  <label data-value="3" class="item">
+                    <input type="checkbox">
+                    <span></span>
+                    <p>Подработка</p>
+                  </label>
+                </ul>
+              </div>
+              <div class="languages__list text-s12-h14-w400">
+                <h6 class="text-s14-h20-w500">Знание языков</h6>
+                <div class="languages one" data-count="0">
+                  <div class="select-language">
+                    <div class="header text-s12-h14-w400">
+                      <p class="item" data-value="" data-name="">Выберите
+                        язык</p>
+                      <div class="lang-img-wrapper  rotate-img">
+                        <img class="arrow-drop" src="img/arr-down.svg" alt="arrow">
+                      </div>
+                    </div>
+                    <div class="list_wrapper hide">
+                      <div class="list">
+                        <div class="item" data-value="english" data-name="Английский">
+                          Английский
+                        </div>
+                        <div class="item" data-value="deutsch" data-name="Немецкий">
+                          Немецкий
+                        </div>
+                        <div class="item" data-value="chinese" data-name="Китайский">
+                          Китайский
+                        </div>
+                        <div class="item" data-value="hindi" data-name="Хинди">
+                          Хинди
+                        </div>
+                        <div class="item" data-value="spanish" data-name="Испанский">
+                          Испанский
+                        </div>
+                        <div class="item" data-value="russian" data-name="Русский">
+                          Русский
+                        </div>
+                        <div class="item" data-value="portuguese" data-name="Португальский">
+                          Португальский
+                        </div>
+                        <div class="item" data-value="indonesian" data-name="Индонезийский">
+                          Индонезийский
+                        </div>
+                        <div class="item" data-value="arab" data-name="Арабский">
+                          Арабский
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="select-lavel dont-click">
+                    <div class=" header">
+                      <p class="item" data-value="" data-name="">
+                        Выберите уровень</p>
+                      <div class="lang-img-wrapper">
+                        <img class="arrow-drop" src="img/arr-down.svg" alt="arrow">
+                      </div>
+                    </div>
+                    <div class="list_wrapper hide">
+                      <div class="list">
+                        <div class="item" data-value="Родной" data-name="Родной">
+                          Родной
+                        </div>
+                        <div class="item" data-value="А2" data-name="А2 – ниже среднего">
+                          А2 – ниже среднего
+                        </div>
+                        <div class="item" data-value="B1" data-name="В1 – средний">
+                          В1 – средний
+                        </div>
+                        <div class="item" data-value="B2" data-name="В2 – выше среднего">
+                          В2 – выше среднего
+                        </div>
+                        <div class="item" data-value="C1" data-name="C1 – продвинутый">
+                          C1 – продвинутый
+                        </div>
+                        <div class="item" data-value="C2" data-name="C2 – профессиональный">
+                          C2 – профессиональный
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="language-controls">
+                    <button class="remove-language">Удалить</button>
+                    <button class="clear-language">Сбросить</button>
+                  </div>
+                </div>
+                <button class="add-language dont-click text-s12-h14-w400">+Добавить язык</button>
+              </div>
+            </div>
+
+            <div class="addit-wrapper">
+              <div class="auto-sort__addit">
+                <div class="addit__header">
+                  <div class="addit__header-text">
+                    Дополнительные фильтры
+                    <img class="var-icon" src="../responses/img/var.svg" alt="">
+                  </div>
+                  <img class="drop-arrow" src="../responses/img/arr-down.svg" alt="">
+                </div>
+                <div class="addit__modal closed">
+                  <div class="addit__modal_content">
+                    <div class="age">
+                      <p class="label">Возраст</p>
+                      <div class="age-inps">
+                        <div class="age-inp">
+                          <p>от</p>
+                          <input type="text" class="age-input-from text-s12-h14-w400" maxlength="2">
+                          <div class="age-clear">
+                            <img class="age-clear-icon closed" src="../responses/img/close.svg" alt="">
+                          </div>
+                        </div>
+                        <div class="age-inp">
+                          <p>до</p>
+                          <input type="text" class="age-input-to text-s12-h14-w400" maxlength="2">
+                          <div class="age-clear">
+                            <img class="age-clear-icon closed" src="../responses/img/close.svg" alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sex">
+                      <p class="label">Пол</p>
+                      <div class="sex-btn text-s12-h14-w400">Не имеет значения</div>
+                      <div class="sex-modal-wrapper closed">
+                        <div class="sex-modal text-s12-h14-w400">
+                          <ul>
+                            <li>Не имеет значения</li>
+                            <li>Мужской</li>
+                            <li>Женский</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="var-massage-wrapper closed">
+                  <div class="var-massage">
+                    <p class="text-s11-h14-w400">
+                      Согласно ст. 253 и ст. 265 Трудового Кодекса Российской Федерации, существует перечень
+                      производств,
+                      работ и должностей, по которому есть ограничения по трудоустройству определенных категорий
+                      граждан.
+                      Устанавливайте эти фильтры только в том случае, если это не нарушает трудовое
+                      законодательство.
+                      AT-WORK против дискриминации.
+                    </p>
+                  </div>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------------ -->
+              </div>
+
+            </div>
+            <!---------------------------------------- выбранные фильтры----------------------------------------- -->
+            <div class="current-filters text-s12-h14-w400">
+              <div class="filter-items">
+                <div class="age-filter-item closed">
+                  <div class="filter-item-text">
+                    <p class="age-from-wrap closed">от<span class="age-from"></span></p>
+                    <p class="age-to-wrap closed">до<span class="age-to"></span></p>
+                  </div>
+                  <img class="age-item-clear" src="../responses/img/filter-del.svg" alt="">
+                </div>
+              </div>
+              <div class="filters-clear">Очистить фильтр</div>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <div class="no-match">
+              <h3 class="text-s16-h22-w600">Несоответствующие отклики</h3>
+              <p class="text-s14-h20-w400">
+                Новые отклики кандидатов, которые не соответвтсвуют выбранным фильтрам, окажутся
+                в разделе «Отказ»
+              </p>
+              <div class="item">
+                <label data-value="1">
+                  <input id="add-reject-massage" type="checkbox">
+                  <span></span>
+                  <p class="no-match__check-text">Добавить сообщение</p>
+                  <img class="var-status-icon" src="../responses/img/var-status.svg" alt="">
+                </label>
+                <div class="var-status-reject closed">
+                  <!-- <img src="../responses/img/var-status.svg" alt=""> -->
+                  <p class="text-s11-h14-w400">
+                    Сообщите соискателю об отказе, это поможет увеличить количество нужных откликов. Соискатель не
+                    может
+                    обращаться с требованиями узнать причину отказа у работодателя.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="section-step step-6 hide" data-value="6">
+
+              <div class="notification__applicant">
+                <div class="notification__applicant-textarea dont-click">
+                  <div class="text">
+                    <div class="notification__applicant-editor">
+                    </div>
+                    <button class="notification__applicant-clear">Очистить</button>
+                    <p class="notification__text-count text-s12-h14-w400">Символов: <span>0</span> из 1000</p>
+                  </div>
+
+                  <div class="variables">
+                    <h6 class="text-s14-h20-w500">Переменные:</h6>
+                    <p class="variables__name " data-value="[Name]">Имя соискателя</p>
+                    <p class="variables__vacancy " data-value="[Vacancy]">Вакансия</p>
+                    <p class="variables__name-contact " data-value="[Name-contact]">Имя
+                      контактного
+                      лица</p>
+                    <p class="variables__phone " data-value="[Phone]">Телефон для связи</p>
+                    <p class="variables__email " data-value="[Email]">Почта для связи</p>
+                    <p class="variables__name-company " data-value="[Name-company]">Название
+                      компании
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!--------------------------------кнопки очистить и включить автосортировку--------------------------------->
+          <div class="auto-sort__btns">
+            <button class="secondary-btn auto-sort-clear">Сбросить</button>
+            <button class="primary-btn auto-sort-done">Включить автосортировку</button>
+          </div>
+          <!------------------------------------------------------------------------------------------------------- -->
+        </div>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------ -->
+  </div>
+
+  <script type="module" src="scripts/index.js"></script>
+  <script type="module" src="scripts/header-slider.js"></script>
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let filterCounter = 0;
+    let checkInput = false;
+
+    let mainFilterCounter = 0;
+    let mainCheckInput = false;
+
+    let arrayFormatWork = [];
+    let arrayExperience = [];
+
+    let arrayDriverLicense = [];
+    let arrayFilterExperience = [];
+    let arrayCitizenship = [];
+
+    let popupRegionArr = [];
+    let popupCategoryArr = [];
+    let categoryNameArr = [],
+      categoryValueArr = [];
+    let allLanguage = []
+    let allLanguage2 = []
+
+    // Функция склонения слов
+    function declOfNum(number, words) {
+      return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
+    }
+
+    // ================================================
+    // Функции для работы с Cookie
+    // ================================================
+    // запись значений
+    function writeCookie(name, val, expires) {
+      var date = new Date;
+      date.setDate(date.getDate() + expires);
+      document.cookie = name + "=" + val + "; expires=" + date.toUTCString();
+    }
+    // получение значений
+    function readCookie(name) {
+      var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    // удаление значений
+    function delete_cookie(name) {
+      writeCookie(name, "", -1)
+    }
+  </script>
+
+</body>
+
+</html>

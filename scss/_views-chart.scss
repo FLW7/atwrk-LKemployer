@@ -1,0 +1,63 @@
+.line-chart {
+  margin-top: 85px;
+  padding-bottom: 33px;
+  border-bottom: 1px solid var(--gray-300);
+
+  canvas {
+    width: 100%;
+    max-height: 270px;
+  }
+
+  &__month {
+    color: var(--gray-850);
+    margin-left: 35px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .vertical-line {
+    display: block;
+    color: var(--gray-400);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 34px;
+  }
+
+  &__legend {
+    display: flex;
+    color: var(--gray-850);
+
+    & p {
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        margin-right: 34px;
+
+        &::before {
+          content: '';
+          margin-right: 6px;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background-color: var(--gray-850);
+        }
+      }
+
+      &:last-child {
+        &::before {
+          content: '';
+          margin-right: 6px;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background-color: var(--orange-700);
+        }
+      }
+    }
+  }
+}

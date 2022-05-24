@@ -1,0 +1,208 @@
+.auto-sort-wrapper {
+  .addit-wrapper {
+    position: relative;
+  }
+
+  .auto-sort__addit {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--gray-200);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+
+    .label {
+      margin-bottom: 10px;
+    }
+  }
+
+  .addit__header {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .addit__header-text {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+
+    img {
+      margin-left: 10px;
+    }
+  }
+
+  .auto-sort__text {
+    h2 {
+      color: var(--gray-900);
+    }
+  }
+
+  .addit-btn {
+    color: var(--gray-900);
+  }
+
+  .addit__modal_content {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .age-inps {
+    display: flex;
+
+    .age-inp {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-right: 8px;
+
+      p {
+        position: absolute;
+        z-index: 1;
+        color: var(--gray-850);
+        left: 10px;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 400;
+      }
+    }
+
+    input {
+      width: calc(84px - 24px);
+      height: 32px;
+      padding: 4px 8px 4px 25px;
+      border: 1px solid var(--gray-400);
+      border-right: none;
+      color: var(--gray-850);
+      border-radius: 6px 0 0 6px;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .age-clear {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      height: 32px;
+      border: 1px solid var(--gray-400);
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+      padding-right: 8px;
+    }
+  }
+
+  .filter-item-text {
+    display: flex;
+
+    p {
+      margin-left: 4px;
+
+      span {
+        margin-left: 2px;
+      }
+    }
+  }
+
+  .sex {
+    margin-left: 20px;
+    position: relative;
+
+    .sex-btn {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      width: 150px;
+      height: 32px;
+      border: 1px solid var(--gray-400);
+      border-radius: 6px;
+      background: transparent;
+      padding: 0 10px;
+      position: relative;
+      color: var(--gray-850);
+      cursor: pointer;
+      margin-bottom: 15px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 10px;
+        right: 10px;
+
+        background-image: url(../../responses/img/arr-down.svg);
+      }
+    }
+  }
+
+  .sex-modal-wrapper {
+    position: relative;
+
+    // тругугольник
+    &::before {
+      content: "";
+      position: absolute;
+      display: flex;
+      left: 50%;
+      top: -20px;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      border: 10px solid transparent;
+      border-bottom: 10px solid var(--white);
+      z-index: 200;
+    }
+  }
+
+  .sex-modal {
+    position: absolute;
+    width: 100%;
+    background: white;
+    box-shadow: 10px -4px 40px rgba(109, 133, 152, 0.2);
+    border-radius: 6px;
+
+    li {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--gray-100);
+      }
+    }
+  }
+
+
+  .var-massage-wrapper {
+    position: absolute;
+    top: 25px;
+    z-index: 20022;
+  }
+
+  .var-massage {
+    width: 467px;
+    display: flex;
+    align-items: center;
+    background: var(--orange-200);
+    padding: 16px;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 10px;
+
+    img {
+      margin-right: 16px;
+    }
+  }
+}

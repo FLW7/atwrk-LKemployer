@@ -1,0 +1,140 @@
+.disabled {
+  display: none !important;
+}
+
+.menu-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 20px;
+  box-shadow: inset 0px -1px 0px #EEF2F4;
+}
+
+.menu__item:last-child {
+  margin-right: 0;
+}
+
+.menu__item-link {
+  display: flex;
+  color: var(--gray-800);
+
+  &:hover {
+    cursor: pointer;
+
+    // color: #FFA438;
+    .card-count {
+      // background: #FFA438;
+      // color: var(--orange-600);
+    }
+  }
+}
+
+.menu__item-link--active {
+  color: #FFA438;
+
+  .card-count {
+    // background: #FFA438;
+    color: var(--orange-600);
+  }
+}
+
+.menu-slider {
+  height: 0;
+  width: 110px;
+  z-index: 2;
+  border: none;
+  border-top: 2px solid #FFA438;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s all;
+}
+
+.card-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6px;
+  margin-left: 4px;
+  min-width: 19px;
+  height: auto;
+  // background: var(--gray-200);
+  color: var(--gray-850);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@media screen and (max-width: 870px) {
+  .menu-slider {
+    display: none;
+  }
+
+  .menu-block {
+    padding-bottom: 16px;
+
+    &--type--additional-services {
+      padding-bottom: 24px;
+    }
+  }
+
+  .menu-wrapper {
+    width: 100%;
+    overflow: hidden;
+    height: 67px;
+  }
+
+  .menu-box {
+    width: 100%;
+    height: 70px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: flex-start;
+    width: 678px;
+    padding-bottom: 0;
+    box-shadow: none;
+    padding: 0 16px;
+    transform: translateX(0px);
+  }
+
+  .menu__item {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    height: 34px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: var(--gray-150);
+    border: none;
+
+    &--active {
+      border: 1px solid var(--orange-600);
+      background-color: #FFF;
+    }
+  }
+
+  .menu__item-link {
+    white-space: nowrap;
+    color: var(--gray-800);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    &--active {
+      color: var(--orange-600);
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.statistics-wrapper {
+
+  .stats {
+    max-width: 552px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .line {
+      display: block;
+      width: 1px;
+      height: 57px;
+      background: var(--gray-300);
+    }
+
+    .stats-item {
+      position: relative;
+
+      .num {
+        display: flex;
+
+        p {
+          max-width: 165px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        p+span {
+          color: var(--emerald-300);
+          font-size: 14px;
+          font-weight: 300;
+          font-style: italic;
+          margin-top: 8px;
+          margin-left: 7px;
+        }
+      }
+    }
+
+    .views,
+    .responses,
+    .conversion {
+      &__label {
+        margin-bottom: 9px;
+        color: var(--gray-850);
+      }
+    }
+  }
+}

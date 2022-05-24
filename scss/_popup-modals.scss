@@ -1,0 +1,149 @@
+.popup-wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(41, 40, 40, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 20020;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .popup-modal {
+    width: 409px;
+    min-height: 290px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 1px 4px 40px rgba(54, 94, 125, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .popup-label {
+      h1 {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 500;
+        color: var(--gray-900);
+      }
+
+      p {
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 400;
+        color: var(--gray-850);
+      }
+    }
+
+    .item.radio-btn {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .popup-textarea {
+      p {
+        margin-bottom: 8px;
+      }
+    }
+
+    .popup-modal-close {
+      position: absolute;
+      top: 0;
+      right: -30px;
+      cursor: pointer;
+    }
+
+    #reject-input {
+      width: 361px;
+      height: 62px;
+      // margin-top: 10px;
+      // margin-bottom: 14px;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      color: var(--gray-850);
+      border: 1px solid var(--gray-400);
+      border-radius: 6px;
+      resize: none;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        z-index: 3;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        width: 5px;
+        background: var(--gray-500);
+        border-radius: 4px;
+        z-index: 3;
+      }
+    }
+
+    .modal-btns {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        height: 36px;
+        border-radius: 6px;
+        // margin-top: 24px;
+      }
+
+      .modal-cancel-btn {
+        width: 102px;
+        color: var(--gray-850);
+        background: var(--gray-200);
+      }
+
+      .modal-primary-btn {
+        width: 251px;
+        color: white;
+        background: var(--orange-600);
+      }
+
+      .modal-primary-btn.red {
+        background: var(--red-500);
+      }
+    }
+  }
+}
+
+.popup-no-show {
+  .popup-label {
+    margin-bottom: 20px;
+  }
+
+  .modal-btns {
+    margin-top: 40px;
+  }
+}
+
+.popup-complain {
+  .popup-label {
+    margin-bottom: 20px;
+  }
+
+  .hide-all-responses {
+    margin-top: 16px;
+  }
+
+  .modal-btns {
+    margin-top: 40px;
+  }
+}
