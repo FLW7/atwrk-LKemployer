@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.choosen-filters__filter-items').insertAdjacentHTML('beforeend', `
           <div class = "filter-items__item sex-item">
             ${event.querySelector('p').textContent}
-            <img class = "mainFilter-sex-item-clear" src="../responses/img/filter-del.svg" alt="">
+            <img class = "mainFilter-sex-item-clear" src="./img/filter-del.svg" alt="">
           </div>
           `)
       writeCookie('filter-sex', `${event.querySelector('p').textContent}`, 30)
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.choosen-filters__filter-items').insertAdjacentHTML('beforeend', `
         <div class = "filter-items__item sex-item">
           ${readCookie('filter-sex')}
-          <img class = "mainFilter-sex-item-clear" src="../responses/img/filter-del.svg" alt="">
+          <img class = "mainFilter-sex-item-clear" src="./img/filter-del.svg" alt="">
         </div>
         `)
     } else {
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.choosen-filters__filter-items').insertAdjacentHTML('beforeend', `
           <div class = "filter-items__item region-item">
             ${event.querySelector('p').textContent}
-            <img class = "mainFilter-region-item-clear" src="../responses/img/filter-del.svg" alt="">
+            <img class = "mainFilter-region-item-clear" src="./img/filter-del.svg" alt="">
           </div>
           `)
       writeCookie('filter-region', `${event.querySelector('p').textContent}`, 30)
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.choosen-filters__filter-items').insertAdjacentHTML('beforeend', `
         <div class = "filter-items__item region-item">
           ${readCookie('filter-region')}
-          <img class = "mainFilter-region-item-clear" src="../responses/img/filter-del.svg" alt="">
+          <img class = "mainFilter-region-item-clear" src="./img/filter-del.svg" alt="">
         </div>
         `)
     } else {
