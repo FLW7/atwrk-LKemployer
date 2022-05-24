@@ -176,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // открытие dropdown'a два последних места работы в карточке отклика
-  document.querySelectorAll('.response-wrappers .job-item').forEach((jobItem) => {
+    // открытие dropdown'a два последних места работы в карточке отклика
+  document.querySelectorAll('.responses-wrapper .job-item').forEach((jobItem) => {
     jobItem.onclick = (e) => {
       let target = e.target
       document.querySelectorAll('.card-dropdown').forEach((dropLink) => {
