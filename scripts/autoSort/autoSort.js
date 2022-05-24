@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.filter-items').insertAdjacentHTML('beforeend', `
         <div class = "filter-item sex-item">
           ${target.textContent}
-          <img class = "sex-item-clear" src="../responses/img/filter-del.svg" alt="">
+          <img class = "sex-item-clear" src="./img/filter-del.svg" alt="">
         </div>
         `)
       writeCookie('autoSortSex', `${target.textContent}`, 30)
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('.filter-items').insertAdjacentHTML('beforeend', `
         <div class = "filter-item sex-item">
           ${readCookie('autoSortSex')}
-          <img class = "sex-item-clear" src="../responses/img/filter-del.svg" alt="">
+          <img class = "sex-item-clear" src="./img/filter-del.svg" alt="">
         </div>
         `)
       filterCounter++
