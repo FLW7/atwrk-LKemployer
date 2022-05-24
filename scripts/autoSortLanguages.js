@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       filterItem.appendChild(p);
       // добавление иконки "очистить"
       let pic = document.createElement("IMG");
-      pic.src = "../responses/img/filter-del.svg";
+      pic.src = "./img/filter-del.svg";
       pic.classList.add('img-close-current')
       filterItem.appendChild(pic);
       // добавление элемента в список выбранных фильтров
@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
           filterItem.appendChild(p);
           // добавление иконки "очистить"
           let pic = document.createElement("IMG");
-          pic.src = "../responses/img/filter-del.svg";
+          pic.src = "./img/filter-del.svg";
           pic.classList.add('img-close-current')
           filterItem.appendChild(pic);
           // добавление элемента в список выбранных фильтров
